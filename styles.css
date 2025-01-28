@@ -1,0 +1,35 @@
+@layer components {
+    .nav-link {
+        @apply text-gray-600 hover:text-blue-600 transition-colors text-lg;
+    }
+
+    .btn-primary {
+        @apply bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 
+        transition-all hover:scale-105 hover:shadow-lg font-medium;
+    }
+
+    .btn-secondary {
+        @apply border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg 
+        hover:bg-green-600 hover:text-white transition-all hover:scale-105 font-medium;
+    }
+
+    .feature-card {
+        @apply p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all 
+        hover:scale-105 border border-gray-100;
+    }
+
+    .testimonial-card {
+        @apply p-6 rounded-xl bg-white shadow-md hover:shadow-lg transition-all;
+    }
+}
+
+/* Custom Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}

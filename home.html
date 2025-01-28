@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankBandhu - AI-Powered Banking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        /* Custom animations and styles */
+        .gradient-text {
+            background: linear-gradient(45deg, #007BFF, #00E676);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .glow-on-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .slide-down {
+            animation: slideDown 0.2s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Card hover effects */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* AI glow effect */
+        .ai-glow {
+            animation: aiGlow 2s infinite alternate;
+        }
+
+        @keyframes aiGlow {
+            from { box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); }
+            to { box-shadow: 0 0 20px rgba(0, 230, 118, 0.5); }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
+    <header class="fixed w-full bg-gradient-to-r from-slate-900/90 to-purple-900/90 backdrop-blur-md shadow-lg z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Enhanced Logo section with AI-themed animation -->
+            <div class="flex items-center space-x-4">
+                <div class="relative w-12 h-12 floating">
+                    <img src="ai-bank-logo.png" alt="BankBandhu" 
+                         class="h-full w-full object-contain transition-transform hover:scale-110 duration-300 ai-glow">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-lg animate-pulse"></div>
+                    <div class="absolute -inset-2 bg-purple-500/10 rounded-full blur-xl animate-spin-slow"></div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 hover:scale-105 transition-transform duration-300">
+                        BankBandhu
+                    </span>
+                    <span class="text-sm text-gray-300 animate-pulse">AI-Powered Banking</span>
+                </div>
+            </div>
+            
+            <!-- Enhanced navigation with interactive effects -->
+            <div class="hidden md:flex items-center space-x-8">
+                <nav class="flex space-x-6">
+                    <a href="#" class="nav-link group relative text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                        <span class="relative z-10 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                            Home
+                        </span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="nav-link group relative text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                        <span class="relative z-10 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                            Features
+                        </span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="nav-link group relative text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                        <span class="relative z-10 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            AI Banking
+                            <span class="ml-1 px-2 py-0.5 text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full animate-pulse">New</span>
+                        </span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="nav-link group relative text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                        <span class="relative z-10 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                            Support
+                        </span>
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Enhanced right section with AI-themed elements -->
+            <div class="flex items-center space-x-4">
+                <!-- AI Assistant Button -->
+                <button class="hidden md:flex items-center space-x-2 text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                    <div class="relative">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                        </svg>
+                        <div class="absolute -top-1 -right-1 w-2 h-2 bg-purple-400 rounded-full animate-ping"></div>
+                    </div>
+                    <span class="text-sm" onclick="document.getElementById('chatWindow').classList.toggle('hidden')">AI Assistant</span>
+                </button>
+
+                <!-- Enhanced Language selector -->
+                <select class="bg-transparent border border-purple-500/30 rounded-md px-3 py-1.5 text-gray-300 focus:ring-2 focus:ring-purple-500 transition-all duration-300 slide-down">
+                    <option class="bg-slate-900">🌐 English</option>
+                    <option class="bg-slate-900">🌐 हिंदी</option>
+                    <option class="bg-slate-900">🌐 বাংলা</option>
+                    <option class="bg-slate-900">🌐 తెలుగు</option>
+                </select>
+
+                <!-- Enhanced Login button -->
+                <button class="relative group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg 
+                             transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25">
+                    <span class="relative z-10 flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                        </svg>
+                        Login
+                    </span>
+                    <div class="absolute inset-0 rounded-lg bg-white/20 blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+            </div>
+
+            <!-- Mobile menu button with animation -->
+            <div class="md:hidden">
+                <button class="text-gray-300 hover:text-purple-400 focus:outline-none transform transition-transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile menu button -->
+    <div class="md:hidden flex items-center">
+        <button class="text-gray-300 focus:outline-none focus:text-purple-400" id="mobile-menu-button">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+        <ul class="font-medium flex flex-col p-4 mt-4 border border-purple-500/20 rounded-lg bg-slate-900/95 backdrop-blur-lg">
+            <li>
+                <a href="#" class="block py-2 px-3 text-gray-300 rounded-sm hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300">Home</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-gray-300 rounded-sm hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300">About</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-gray-300 rounded-sm hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300">Services</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-gray-300 rounded-sm hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300">Pricing</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-gray-300 rounded-sm hover:bg-purple-500/20 hover:text-purple-400 transition-all duration-300">Contact</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Hero Section with AI Animation -->
+    <section class="pt-32 pb-20 relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10"></div>
+            <div class="absolute inset-0" id="particles-js"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80"></div>
+        </div>
+
+        <!-- Main content container -->
+        <div class="container mx-auto px-6 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Column - Main Content -->
+                <div class="text-left" data-aos="fade-right">
+                    <!-- AI Animation -->
+                    <div class="mb-8 relative">
+                        <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full transform animate-pulse"></div>
+                        <model-viewer
+                            src="/assets/ai-brain.glb"
+                            auto-rotate
+                            camera-controls
+                            class="w-64 h-64 mx-auto floating"
+                            style="--poster-color: transparent;">
+                        </model-viewer>
+                    </div>
+
+                    <!-- Animated Headline -->
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+                        <span class="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 animate-gradient-x">
+                            Next-Gen Banking
+                        </span>
+                        <span class="block mt-2 text-4xl">
+                            Powered by Advanced AI
+                        </span>
+                    </h1>
+
+                    <p class="text-xl text-gray-300 mb-8">
+                        Experience the future of banking with our AI-driven solutions that provide personalized insights, 
+                        enhanced security, and seamless transactions.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 mb-12">
+                        <button class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                            <span class="relative z-10 text-white font-medium">Open AI Account</span>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        <button class="px-8 py-4 border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-all duration-300">
+                            Watch Demo
+                        </button>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div class="p-4 rounded-lg bg-white/5 backdrop-blur">
+                            <h4 class="text-3xl font-bold text-purple-400">99.9%</h4>
+                            <p class="text-gray-400">Security Rate</p>
+                        </div>
+                        <div class="p-4 rounded-lg bg-white/5 backdrop-blur">
+                            <h4 class="text-3xl font-bold text-blue-400">24/7</h4>
+                            <p class="text-gray-400">AI Support</p>
+                        </div>
+                        <div class="p-4 rounded-lg bg-white/5 backdrop-blur">
+                            <h4 class="text-3xl font-bold text-purple-400">5M+</h4>
+                            <p class="text-gray-400">Active Users</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Features & News -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Smart Card Preview -->
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative p-6 bg-slate-800 ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
+                            <div class="space-y-2">
+                                <p class="text-purple-400">AI-Powered Smart Card</p>
+                                <div class="h-48 w-72 bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl p-4 transform rotate-6 hover:rotate-0 transition-transform duration-300">
+                                    <div class="flex justify-between items-start">
+                                        <div class="w-12 h-12">
+                                            <svg class="text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-white font-medium">Smart Banking Card</p>
+                                            <p class="text-sm text-gray-200">AI Protected</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Banking News Ticker -->
+                    <div class="bg-slate-800/50 backdrop-blur rounded-lg p-4">
+                        <h3 class="text-white font-semibold mb-4">Live Banking Updates</h3>
+                        <div class="overflow-hidden h-20">
+                            <div class="animate-scroll space-y-2">
+                                <div class="flex items-center space-x-2 text-gray-300">
+                                    <span class="text-purple-400">●</span>
+                                    <p>AI detects and prevents fraudulent transactions in real-time</p>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-300">
+                                    <span class="text-blue-400">●</span>
+                                    <p>New smart savings features launched with AI predictions</p>
+                                </div>
+                                <div class="flex items-center space-x-2 text-gray-300">
+                                    <span class="text-purple-400">●</span>
+                                    <p>Automated investment portfolio management now available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Features Icons -->
+        <div class="absolute bottom-0 left-0 right-0 py-8 bg-gradient-to-t from-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-around items-center">
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-300">AI Security</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-purple-500/10 rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-4 0V3a2 2 0 112 2v2m-6 10v2m6-2v2"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-300">Smart Payments</span>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm font-medium text-gray-300">AI Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with AI Focus -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block hover:scale-105 transition-transform duration-300">
+                    Next-Generation AI Banking Features
+                </span>
+            </h2>
+            
+            <!-- 3x2 Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                
+                <!-- Card 1 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-blue-400 transition-colors duration-300">Smart Banking</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">AI-powered account management with predictive analytics and automated savings recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Smart Banking Details</h3>
+                                
+                                <!-- Animated Graph -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="absolute inset-0 flex items-end justify-around">
+                                        <div class="w-2 bg-blue-400/50 rounded-t animate-graph-bar-1" style="height: 60%"></div>
+                                        <div class="w-2 bg-blue-400/50 rounded-t animate-graph-bar-2" style="height: 80%"></div>
+                                        <div class="w-2 bg-blue-400/50 rounded-t animate-graph-bar-3" style="height: 40%"></div>
+                                        <div class="w-2 bg-blue-400/50 rounded-t animate-graph-bar-4" style="height: 70%"></div>
+                                        <div class="w-2 bg-blue-400/50 rounded-t animate-graph-bar-5" style="height: 90%"></div>
+                                    </div>
+                                    <div class="absolute inset-0 border-b border-gray-400/30"></div>
+                                </div>
+
+                                <!-- Additional Details -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                        Automated Expense Tracking
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                                        Smart Budget Recommendations
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
+                                        Real-time Financial Insights
+                                    </li>
+                                </ul>
+
+                                <!-- Animated Progress Circle -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="w-16 h-16 rounded-full border-4 border-blue-400/30 border-t-blue-400 animate-spin"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-purple-400 transition-colors duration-300">AI Security</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Advanced fraud detection system with real-time monitoring and behavioral analysis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Security Analysis</h3>
+                                
+                                <!-- Security Shield Animation -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-20 h-20 bg-purple-400/20 rounded-full animate-pulse flex items-center justify-center">
+                                            <div class="w-16 h-16 bg-purple-400/30 rounded-full animate-ping"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Security Metrics -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                        Threat Detection Active
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
+                                        Behavioral Analysis Running
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                                        Real-time Monitoring
+                                    </li>
+                                </ul>
+
+                                <!-- Security Status Indicator -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="w-16 h-16 relative">
+                                        <div class="absolute inset-0 border-4 border-purple-400/30 rounded-full"></div>
+                                        <div class="absolute inset-0 border-4 border-purple-400 rounded-full animate-[spin_3s_linear_infinite]" style="clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-400/20 to-teal-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-green-400 transition-colors duration-300">Smart Investments</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">AI-driven portfolio management with market trend analysis and risk assessment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Investment Performance</h3>
+                                
+                                <!-- Investment Chart -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="absolute inset-0">
+                                        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                                            <path d="M0,50 Q25,25 50,50 T100,50" class="stroke-green-400 stroke-2 fill-none animate-draw-line"/>
+                                            <circle cx="75" cy="50" r="2" class="fill-green-400 animate-bounce"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Investment Metrics -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                                        Portfolio Growth: +12.5%
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-teal-400 rounded-full mr-2 animate-pulse"></span>
+                                        Risk Level: Moderate
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
+                                        AI Recommendations Active
+                                    </li>
+                                </ul>
+
+                                <!-- Investment Status -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="relative w-16 h-16">
+                                        <div class="absolute inset-0 bg-green-400/20 rounded-full animate-ping"></div>
+                                        <div class="relative w-full h-full bg-green-400/30 rounded-full flex items-center justify-center">
+                                            <span class="text-green-400 text-xs font-bold">ACTIVE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-yellow-400 transition-colors duration-300">Performance Analytics</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Comprehensive financial analytics with AI-powered insights and recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Analytics Dashboard</h3>
+                                
+                                <!-- Analytics Visualization -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="grid grid-cols-4 gap-2 h-full">
+                                        <div class="bg-yellow-400/20 rounded animate-height"></div>
+                                        <div class="bg-yellow-400/20 rounded animate-height-delay-1"></div>
+                                        <div class="bg-yellow-400/20 rounded animate-height-delay-2"></div>
+                                        <div class="bg-yellow-400/20 rounded animate-height-delay-3"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Analytics Metrics -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2 animate-pulse"></span>
+                                        Data Processing
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-orange-400 rounded-full mr-2 animate-pulse"></span>
+                                        Pattern Recognition
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-amber-400 rounded-full mr-2 animate-pulse"></span>
+                                        Predictive Modeling
+                                    </li>
+                                </ul>
+
+                                <!-- Analytics Status -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div class="h-4 bg-yellow-400/20 rounded animate-pulse"></div>
+                                        <div class="h-4 bg-orange-400/20 rounded animate-pulse delay-100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-400/20 to-red-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-pink-400 transition-colors duration-300">Smart Support</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">24/7 AI-powered customer support with intelligent query resolution</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Support Status</h3>
+                                
+                                <!-- Chat Animation -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="space-y-2">
+                                        <div class="w-3/4 h-6 bg-pink-400/20 rounded-full animate-slide-right"></div>
+                                        <div class="w-2/3 h-6 bg-pink-400/20 rounded-full animate-slide-right delay-100 ml-auto"></div>
+                                        <div class="w-3/4 h-6 bg-pink-400/20 rounded-full animate-slide-right delay-200"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Support Metrics -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-pink-400 rounded-full mr-2 animate-pulse"></span>
+                                        AI Agents Online: 24/7
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></span>
+                                        Response Time: <2min
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-rose-400 rounded-full mr-2 animate-pulse"></span>
+                                        Resolution Rate: 95%
+                                    </li>
+                                </ul>
+
+                                <!-- Support Status -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-green-400 rounded-full animate-ping"></div>
+                                        <span class="text-green-400 text-sm">Live Support Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group relative h-80">
+                    <div class="feature-card h-full p-8 bg-white/10 backdrop-blur-md rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                        <div class="relative h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                                    <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-semibold mb-4 text-white group-hover:text-indigo-400 transition-colors duration-300">Biometric Security</h3>
+                                <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Advanced biometric authentication with AI-powered facial and voice recognition</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popup Card -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div class="h-full p-8 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-lg rounded-xl shadow-2xl transform transition-all duration-500">
+                            <div class="h-full flex flex-col">
+                                <h3 class="text-xl font-semibold mb-4 text-white">Biometric Scan</h3>
+                                
+                                <!-- Biometric Animation -->
+                                <div class="relative h-32 mb-4 overflow-hidden">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="relative w-20 h-20">
+                                            <div class="absolute inset-0 border-4 border-indigo-400/30 rounded-full"></div>
+                                            <div class="absolute inset-0 border-4 border-indigo-400 rounded-full animate-[spin_2s_linear_infinite]"></div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <svg class="w-10 h-10 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Biometric Metrics -->
+                                <ul class="text-sm text-gray-200 space-y-2">
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-indigo-400 rounded-full mr-2 animate-pulse"></span>
+                                        Facial Recognition Active
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
+                                        Voice Authentication Ready
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="w-2 h-2 bg-violet-400 rounded-full mr-2 animate-pulse"></span>
+                                        Fingerprint Scanning Online
+                                    </li>
+                                </ul>
+
+                                <!-- Scan Status -->
+                                <div class="mt-auto flex justify-center">
+                                    <div class="w-full h-2 bg-indigo-400/20 rounded-full overflow-hidden">
+                                        <div class="h-full bg-indigo-400 rounded-full animate-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Floating Stats -->
+        <div class="mt-16 bg-white/5 backdrop-blur-sm py-8">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-4 gap-8 text-center">
+                    <div class="stat-item" data-aos="fade-up">
+                        <h4 class="text-3xl font-bold text-blue-400 mb-2">99.9%</h4>
+                        <p class="text-gray-300">AI Accuracy</p>
+                    </div>
+                    <!-- Add more stats -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional sections with similar AI-focused improvements -->
+    <!-- ...existing code... -->
+
+    <!-- Add an AI Chat Assistant -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <!-- Chat Button with Animated Notification -->
+        <div class="relative">
+            <button id="chatButton" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ai-glow group">
+                <div class="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-ping"></div>
+                <div class="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full"></div>
+                <svg class="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Chat Window -->
+        <div id="chatWindow" class="hidden absolute bottom-20 right-0 w-96 bg-gradient-to-br from-slate-900 to-purple-900 rounded-xl shadow-2xl border border-purple-500/30 overflow-hidden">
+            <!-- Chat Header -->
+            <div class="p-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border-b border-white/10">
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-900"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-semibold">AI Assistant</h3>
+                        <p class="text-xs text-gray-300">Online | Powered by Advanced AI</p>
+                    </div>
+                    <button onclick="document.getElementById('chatWindow').classList.add('hidden')" class="ml-auto text-gray-400 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="h-96 overflow-y-auto p-4 space-y-4">
+                <div class="flex items-start space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-3 max-w-[80%]">
+                        <p class="text-white text-sm">Hello! How can I assist you with your banking needs today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="p-4 border-t border-white/10 bg-gradient-to-r from-blue-600/10 to-purple-600/10">
+                <div class="flex items-center space-x-2">
+                    <input type="text" placeholder="Type your message..." class="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button class="bg-gradient-to-r from-blue-500 to-purple-500 p-2 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('chatButton').addEventListener('click', function() {
+                document.getElementById('chatWindow').classList.toggle('hidden');
+            });
+        </script>
+    </div>
+
+    <!-- main section -->
+    <main>
+
+        <!-- main page typo -->
+
+
+        <!-- hero sectino slider cursoul -->
+         <!-- Banking Offers & Promotions Carousel -->
+        <div id="offers-carousel" class="relative w-full bg-gradient-to-br from-slate-900 to-purple-900 p-8" data-carousel="slide">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="animate-spin-slow absolute -top-24 -left-24 w-48 h-48 text-purple-500/20" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" fill="none"/>
+                    </svg>
+                    <svg class="animate-pulse absolute top-1/2 right-12 w-32 h-32 text-blue-500/20" viewBox="0 0 100 100">
+                        <path d="M50 0 L100 87 L0 87 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Carousel Content -->
+            <div class="relative h-[32rem] overflow-hidden rounded-2xl">
+                <!-- Offer 1: Premium Banking -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Premium Banking Package</h2>
+                            <p class="text-xl text-gray-200">Experience luxury banking with exclusive benefits</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Get Started
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg" alt="Premium Banking" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 2: Digital Savings -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-green-600/20 to-teal-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Digital Savings Account</h2>
+                            <p class="text-xl text-gray-200">6.5% interest rate with zero maintenance fees</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Save Now
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/4386158/pexels-photo-4386158.jpeg" alt="Digital Savings" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 3: Student Banking -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Student Special Account</h2>
+                            <p class="text-xl text-gray-200">Free banking with educational benefits</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Learn More
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg" alt="Student Banking" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 4: Business Banking -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-indigo-600/20 to-blue-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Business Solutions</h2>
+                            <p class="text-xl text-gray-200">Comprehensive banking for your enterprise</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Partner With Us
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Business Banking" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 5: Investment Plans -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Smart Investments</h2>
+                            <p class="text-xl text-gray-200">Grow your wealth with expert guidance</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Invest Now
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/186461/pexels-photo-186461.jpeg" alt="Investment Plans" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offer 6: Mobile Banking -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="absolute inset-0 flex items-center justify-between p-12 bg-gradient-to-r from-red-600/20 to-orange-600/20 backdrop-blur-sm">
+                        <div class="w-1/2 space-y-6">
+                            <h2 class="text-4xl font-bold text-white">Mobile Banking</h2>
+                            <p class="text-xl text-gray-200">Banking at your fingertips 24/7</p>
+                            <button class="px-8 py-3 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg text-white font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                Download App
+                            </button>
+                        </div>
+                        <div class="w-1/2 flex justify-center">
+                            <img src="https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg" alt="Mobile Banking" class="w-96 h-96 object-contain animate-float">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button type="button" class="absolute top-1/2 -translate-y-1/2 left-4 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm transition-all" data-carousel-prev>
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+            <button type="button" class="absolute top-1/2 -translate-y-1/2 right-4 z-30 flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 backdrop-blur-sm transition-all" data-carousel-next>
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+
+
+
+        <!-- Loan Services Section -->
+        <section class="text-gray-600 body-font overflow-hidden relative group">
+            <!-- Animated background elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-100 to-teal-100"></div>
+                <div class="animate-float absolute top-10 left-10">
+                    <svg class="w-20 h-20 text-emerald-200" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2zM12 4c-4.418 0-8 2.239-8 5v10c0 2.761 3.582 5 8 5s8-2.239 8-5V9c0-2.761-3.582-5-8-5z"/>
+                    </svg>
+                </div>
+                <div class="animate-float-delayed absolute bottom-10 right-10">
+                    <svg class="w-16 h-16 text-teal-200" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center relative">
+                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
+                        Flexible Loan Solutions
+                        <br class="hidden lg:inline-block"/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">For Every Need</span>
+                    </h1>
+                    
+                    <!-- Loan Types Cards with Hover Effects -->
+                    <div class="w-full max-w-md mb-8 overflow-hidden">
+                        <div class="space-y-4">
+                            <div class="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-emerald-500 hover:translate-x-2" data-loan="student">
+                                <h3 class="text-lg font-semibold text-emerald-600">Student Loans</h3>
+                                <p class="text-gray-600">Low interest rates with flexible repayment options</p>
+                                <div class="h-0 overflow-hidden hover:h-auto hover:mt-4 transition-all duration-300">
+                                    <div class="bg-emerald-50 p-3 rounded-lg">
+                                        <p class="text-sm text-emerald-700">Interest rate: 4.5% p.a.</p>
+                                        <p class="text-sm text-emerald-700">Tenure: Up to 10 years</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-teal-500 hover:translate-x-4" data-loan="home">
+                                <h3 class="text-lg font-semibold text-teal-600">Home Loans</h3>
+                                <p class="text-gray-600">Make your dream home a reality with competitive rates</p>
+                                <div class="h-0 overflow-hidden hover:h-auto hover:mt-4 transition-all duration-300">
+                                    <div class="bg-teal-50 p-3 rounded-lg">
+                                        <p class="text-sm text-teal-700">Interest rate: 6.5% p.a.</p>
+                                        <p class="text-sm text-teal-700">Tenure: Up to 30 years</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-emerald-500 hover:translate-x-6" data-loan="health">
+                                <h3 class="text-lg font-semibold text-emerald-600">Health Care Loans</h3>
+                                <p class="text-gray-600">Quick medical financing with minimal documentation</p>
+                                <div class="h-0 overflow-hidden hover:h-auto hover:mt-4 transition-all duration-300">
+                                    <div class="bg-emerald-50 p-3 rounded-lg">
+                                        <p class="text-sm text-emerald-700">Interest rate: 7% p.a.</p>
+                                        <p class="text-sm text-emerald-700">Quick approval within 24 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-white/80 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all border-l-4 border-teal-500 hover:translate-x-8" data-loan="business">
+                                <h3 class="text-lg font-semibold text-teal-600">Business Loans</h3>
+                                <p class="text-gray-600">Empower your business growth with custom solutions</p>
+                                <div class="h-0 overflow-hidden hover:h-auto hover:mt-4 transition-all duration-300">
+                                    <div class="bg-teal-50 p-3 rounded-lg">
+                                        <p class="text-sm text-teal-700">Interest rate: 8% p.a.</p>
+                                        <p class="text-sm text-teal-700">Flexible collateral options</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center gap-4">
+                        <button class="inline-flex items-center text-white bg-gradient-to-r from-emerald-600 to-teal-600 border-0 py-2 px-6 focus:outline-none hover:bg-emerald-700 rounded-lg text-lg transition-all hover:scale-105">
+                            Apply Now
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                        <button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded-lg text-lg transition-all hover:scale-105">Calculate EMI</button>
+                    </div>
+                </div>
+                
+                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 relative">
+                    <!-- Individual loan type images that show/hide on hover -->
+                    <div class="relative w-full h-96">
+                        <img class="object-cover object-center rounded-lg shadow-2xl hidden transition-opacity duration-500" id="student-loan-img" src="/assets/student-loan.svg" alt="Student Loan">
+                        <img class="object-cover object-center rounded-lg shadow-2xl hidden transition-opacity duration-500" id="home-loan-img" src="/assets/home-loan.svg" alt="Home Loan">
+                        <img class="object-cover object-center rounded-lg shadow-2xl hidden transition-opacity duration-500" id="health-loan-img" src="/assets/health-loan.svg" alt="Health Care Loan">
+                        <img class="object-cover object-center rounded-lg shadow-2xl hidden transition-opacity duration-500" id="business-loan-img" src="/assets/business-loan.svg" alt="Business Loan">
+                        
+                        <!-- Default image when no card is hovered -->
+                        <img class="object-cover object-center rounded-lg shadow-2xl" id="default-loan-img" src="/assets/loan-services.svg" alt="Loan Services">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- info section -->
+        <section class="text-gray-300 body-font relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80"></div>
+            </div>
+
+            <div class="container px-5 py-24 mx-auto relative">
+                <div class="flex flex-col text-center w-full mb-20">
+                    <h2 class="text-xs text-blue-400 tracking-widest font-medium title-font mb-1">NEXT-GEN BANKING</h2>
+                    <h1 class="sm:text-3xl text-2xl font-medium title-font text-white">
+                        Biometric Security Features
+                    </h1>
+                </div>
+                <div class="flex flex-wrap -m-4">
+                    <div class="p-4 md:w-1/3">
+                        <div class="flex rounded-lg h-full bg-white/10 backdrop-blur-md p-8 flex-col hover:shadow-2xl transition-all duration-500">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-400 text-white flex-shrink-0">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-lg title-font font-medium">Facial Recognition</h2>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="leading-relaxed text-base text-gray-300">Advanced AI-powered facial recognition for secure account access and transaction verification.</p>
+                                <a class="mt-3 text-blue-400 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3">
+                        <div class="flex rounded-lg h-full bg-white/10 backdrop-blur-md p-8 flex-col hover:shadow-2xl transition-all duration-500">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-400 text-white flex-shrink-0">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-lg title-font font-medium">Voice Authentication</h2>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="leading-relaxed text-base text-gray-300">Secure voice biometric authentication for hands-free banking and transaction approval.</p>
+                                <a class="mt-3 text-blue-400 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 md:w-1/3">
+                        <div class="flex rounded-lg h-full bg-white/10 backdrop-blur-md p-8 flex-col hover:shadow-2xl transition-all duration-500">
+                            <div class="flex items-center mb-3">
+                                <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-purple-400 text-white flex-shrink-0">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <circle cx="6" cy="6" r="3"></circle>
+                                        <circle cx="6" cy="18" r="3"></circle>
+                                        <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                                    </svg>
+                                </div>
+                                <h2 class="text-white text-lg title-font font-medium">Fingerprint Scanning</h2>
+                            </div>
+                            <div class="flex-grow">
+                                <p class="leading-relaxed text-base text-gray-300">Quick and secure fingerprint verification for instant access to your accounts.</p>
+                                <a class="mt-3 text-blue-400 inline-flex items-center">Learn More
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- features section -->
+        <section class="text-gray-300 body-font relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10"></div>
+                <div class="absolute top-20 left-1/4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+            </div>
+
+            <div class="container px-5 py-24 mx-auto relative">
+                <div class="flex flex-col text-center w-full mb-20" data-aos="fade-up">
+                    <h1 class="sm:text-4xl text-3xl font-bold mb-4">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+                            AI-Powered Banking Features
+                        </span>
+                    </h1>
+                    <p class="lg:w-2/3 mx-auto leading-relaxed text-gray-300">Experience next-generation banking with our advanced AI features that provide enhanced security, smart analytics, and personalized service.</p>
+                    <div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded mx-auto mt-4 animate-pulse"></div>
+                </div>
+
+                <div class="flex flex-wrap -m-4 text-center">
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white/10 backdrop-blur-md px-4 py-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-blue-500/20 blur-xl rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="text-blue-400 w-12 h-12 mb-3 inline-block relative z-10 transform group-hover:rotate-12 transition-transform duration-300"
+                                    viewBox="0 0 24 24">
+                                    <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                                    <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                                </svg>
+                            </div>
+                            <h2 class="title-font font-medium text-3xl text-white mb-2">2.7M</h2>
+                            <p class="leading-relaxed">Active Users</p>
+                            <div class="mt-4 h-0 group-hover:h-16 overflow-hidden transition-all duration-300">
+                                <p class="text-sm text-gray-400">Growing user base with AI-driven personalization and smart features</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white/10 backdrop-blur-md px-4 py-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-purple-500/20 blur-xl rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="text-purple-400 w-12 h-12 mb-3 inline-block relative z-10 transform group-hover:rotate-12 transition-transform duration-300"
+                                    viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                                </svg>
+                            </div>
+                            <h2 class="title-font font-medium text-3xl text-white mb-2">99.9%</h2>
+                            <p class="leading-relaxed">Security Rate</p>
+                            <div class="mt-4 h-0 group-hover:h-16 overflow-hidden transition-all duration-300">
+                                <p class="text-sm text-gray-400">Advanced AI-powered fraud detection and prevention system</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white/10 backdrop-blur-md px-4 py-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-green-500/20 blur-xl rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="text-green-400 w-12 h-12 mb-3 inline-block relative z-10 transform group-hover:rotate-12 transition-transform duration-300"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                                    <path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="title-font font-medium text-3xl text-white mb-2">24/7</h2>
+                            <p class="leading-relaxed">Support</p>
+                            <div class="mt-4 h-0 group-hover:h-16 overflow-hidden transition-all duration-300">
+                                <p class="text-sm text-gray-400">AI chatbot assistance available around the clock</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-white/10 backdrop-blur-md px-4 py-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group">
+                            <div class="relative">
+                                <div class="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" class="text-indigo-400 w-12 h-12 mb-3 inline-block relative z-10 transform group-hover:rotate-12 transition-transform duration-300"
+                                    viewBox="0 0 24 24">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <h2 class="title-font font-medium text-3xl text-white mb-2">100%</h2>
+                            <p class="leading-relaxed">Secure</p>
+                            <div class="mt-4 h-0 group-hover:h-16 overflow-hidden transition-all duration-300">
+                                <p class="text-sm text-gray-400">State-of-the-art encryption & biometric security measures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Banking Features Section -->
+        <section class="text-gray-600 body-font bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10 animate-pulse"></div>
+                <div class="absolute top-20 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+            </div>
+
+            <div class="container px-5 py-24 mx-auto relative">
+                <div class="flex flex-wrap w-full mb-20">
+                    <div class="lg:w-1/2 w-full mb-6 lg:mb-0" data-aos="fade-right">
+                        <h1 class="sm:text-4xl text-3xl font-bold mb-4">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+                                Next-Gen AI Banking
+                            </span>
+                        </h1>
+                        <div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded animate-pulse"></div>
+                    </div>
+                    <p class="lg:w-1/2 w-full leading-relaxed text-gray-300" data-aos="fade-left">
+                        Experience the future of banking with our AI-powered features. Smart analytics, personalized recommendations, and enhanced security - all in one place.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap -m-4">
+                    <!-- AI Account Management -->
+                    <div class="xl:w-1/4 md:w-1/2 p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-16 h-16 mb-4 relative">
+                                <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg class="w-full h-full text-blue-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl text-white font-medium mb-2">Smart Account Management</h3>
+                            <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">AI-powered insights and automated expense tracking for better financial control.</p>
+                        </div>
+                    </div>
+
+                    <!-- AI Security -->
+                    <div class="xl:w-1/4 md:w-1/2 p-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-16 h-16 mb-4 relative">
+                                <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg class="w-full h-full text-purple-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl text-white font-medium mb-2">Enhanced Security</h3>
+                            <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Biometric authentication and AI fraud detection for maximum protection.</p>
+                        </div>
+                    </div>
+
+                    <!-- AI Investment -->
+                    <div class="xl:w-1/4 md:w-1/2 p-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-16 h-16 mb-4 relative">
+                                <div class="absolute inset-0 bg-green-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg class="w-full h-full text-green-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl text-white font-medium mb-2">Smart Investments</h3>
+                            <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">AI-powered investment recommendations and portfolio management.</p>
+                        </div>
+                    </div>
+
+                    <!-- 24/7 Support -->
+                    <div class="xl:w-1/4 md:w-1/2 p-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                            <div class="w-16 h-16 mb-4 relative">
+                                <div class="absolute inset-0 bg-pink-500/20 rounded-full blur-lg transform group-hover:scale-110 transition-transform duration-300"></div>
+                                <svg class="w-full h-full text-pink-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl text-white font-medium mb-2">24/7 AI Support</h3>
+                            <p class="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Instant assistance with our AI chatbot and virtual assistant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- credit card section -->
+        <!-- Credit Card Creation Section -->
+        <section class="relative py-24 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+            <!-- Animated Background -->
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute inset-0 bg-[url('/assets/circuit-pattern.png')] opacity-10 animate-slide-diagonal"></div>
+                <div class="absolute top-20 left-1/4 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+            </div>
+
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap items-center">
+                    <!-- Left Content -->
+                    <div class="w-full lg:w-1/2 mb-12 lg:mb-0">
+                        <div class="relative" data-aos="fade-right">
+                            <h2 class="text-4xl font-bold text-white mb-6">
+                                Design Your Perfect 
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+                                    Credit Card
+                                </span>
+                            </h2>
+                            <p class="text-gray-300 text-lg mb-8">Create a personalized credit card that matches your style. Choose from exclusive designs or upload your own image to make it truly unique.</p>
+                            
+                            <!-- Floating Card Preview with Smooth Flip Effect -->
+                            <div class="relative w-96 h-56 mx-auto lg:mx-0 [perspective:1000px] group">
+                                <div id="cardPreview" class="absolute w-full h-full transition-transform duration-700 ease-in-out [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                                    <!-- Front of Card -->
+                                    <div class="absolute w-full h-full bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-2xl [backface-visibility:hidden]">
+                                        <div id="cardBackground" class="h-full w-full absolute inset-0 rounded-2xl bg-cover bg-center opacity-50 transition-opacity duration-300"></div>
+                                        <div class="h-full p-6 flex flex-col justify-between relative">
+                                            <div class="flex justify-between items-start">
+                                                <div class="w-12 h-12">
+                                                    <svg class="w-full h-full text-white" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="w-12 h-12 animate-pulse">
+                                                    <svg class="w-full h-full text-white/80" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="text-white space-y-4">
+                                                <div class="text-xl font-mono">**** **** **** 1234</div>
+                                                <div class="flex justify-between">
+                                                    <span id="cardHolderDisplay">CARD HOLDER NAME</span>
+                                                    <span>MM/YY</span>
+                                                </div>
+                                                <div id="cardTypeDisplay" class="text-sm font-medium">Premium Rewards Card</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Back of Card -->
+                                    <div class="absolute w-full h-full bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                                        <div class="h-full flex flex-col justify-between p-6">
+                                            <div class="w-full h-12 bg-black/50 mt-4"></div>
+                                            <div class="flex flex-col items-end space-y-2">
+                                                <div class="w-full h-8 bg-white/10 rounded flex items-center justify-end px-4">
+                                                    <span class="text-white font-mono">***</span>
+                                                </div>
+                                                <div class="text-xs text-gray-400 italic">
+                                                    This card is property of NextGen Bank
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form -->
+                    <div class="w-full lg:w-1/2 lg:pl-12" data-aos="fade-left">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+                            <form class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-200 mb-2">Full Name</label>
+                                    <input type="text" 
+                                           id="cardHolderInput"
+                                           oninput="document.getElementById('cardHolderDisplay').textContent = this.value || 'CARD HOLDER NAME'"
+                                           class="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-600 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500 transition-colors" 
+                                           placeholder="Enter your full name">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-200 mb-2">Email Address</label>
+                                    <input type="email" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-600 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500 transition-colors" placeholder="Enter your email">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-200 mb-2">Card Theme</label>
+                                    <select 
+                                        onchange="updateCardStyle(this.value)"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500 transition-colors">
+                                        <option value="premium">Classic Premium</option>
+                                        <option value="anime">Anime Collection</option>
+                                        <option value="cars">Sports Cars</option>
+                                        <option value="nature">Nature Series</option>
+                                        <option value="custom">Custom Design</option>
+                                    </select>
+                                </div>
+
+                                <!-- Custom Image Upload -->
+                                <div id="customUpload" class="hidden">
+                                    <label class="block text-sm font-medium text-gray-200 mb-2">Upload Custom Image</label>
+                                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-lg hover:border-purple-500 transition-colors">
+                                        <div class="space-y-1 text-center">
+                                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <div class="flex text-sm text-gray-400">
+                                                <label class="relative cursor-pointer rounded-md font-medium text-purple-500 hover:text-purple-400">
+                                                    <span>Upload a file</span>
+                                                    <input id="file-upload" name="file-upload" type="file" class="sr-only" onchange="handleCustomImage(this)">
+                                                </label>
+                                            </div>
+                                            <p class="text-xs text-gray-400">PNG, JPG up to 2MB</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="w-full py-4 px-6 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all transform hover:scale-105">
+                                    Create My Card
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function updateCardStyle(cardType) {
+                    const cardPreview = document.getElementById('cardPreview');
+                    const cardBackground = document.getElementById('cardBackground');
+                    const cardTypeDisplay = document.getElementById('cardTypeDisplay');
+                    const customUpload = document.getElementById('customUpload');
+                    
+                    const styles = {
+                        premium: {
+                            background: 'bg-gradient-to-r from-yellow-600 to-yellow-400',
+                            text: 'Premium Rewards Card',
+                            image: null
+                        },
+                        anime: {
+                            background: 'bg-gradient-to-r from-pink-600 to-purple-400',
+                            text: 'Anime Collection Card',
+                            image: '/assets/anime-theme.jpg'
+                        },
+                        cars: {
+                            background: 'bg-gradient-to-r from-red-600 to-orange-400',
+                            text: 'Sports Cars Edition',
+                            image: '/assets/sports-car.jpg'
+                        },
+                        nature: {
+                            background: 'bg-gradient-to-r from-green-600 to-emerald-400',
+                            text: 'Nature Series Card',
+                            image: '/assets/nature.jpg'
+                        },
+                        custom: {
+                            background: 'bg-gradient-to-r from-blue-600 to-purple-600',
+                            text: 'Custom Design Card',
+                            image: null
+                        }
+                    };
+
+                    // Toggle custom upload section
+                    customUpload.classList.toggle('hidden', cardType !== 'custom');
+
+                    // Remove all possible gradient classes
+                    cardPreview.className = cardPreview.className.replace(/bg-gradient-to-r from-\w+-\d+ to-\w+-\d+/g, '');
+                    
+                    // Add new gradient class
+                    cardPreview.classList.add(...styles[cardType].background.split(' '));
+                    
+                    // Update card type text
+                    cardTypeDisplay.textContent = styles[cardType].text;
+
+                    // Update background image if exists
+                    if (styles[cardType].image) {
+                        cardBackground.style.backgroundImage = `url('${styles[cardType].image}')`;
+                    } else {
+                        cardBackground.style.backgroundImage = 'none';
+                    }
+                }
+
+                function handleCustomImage(input) {
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            document.getElementById('cardBackground').style.backgroundImage = `url('${e.target.result}')`;
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+        </section>
+
+
+        <!-- faq section -->
+        <!-- FAQ -->
+        <!-- FAQ Section with Animated Elements -->
+        <div class="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto relative overflow-hidden bg-gray-900">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute top-20 left-1/4 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-1/4 w-40 h-40 bg-gradient-to-r from-indigo-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse delay-700"></div>
+            </div>
+
+            <!-- Floating Search Animation -->
+            <div class="flex justify-center mb-16">
+                <div class="relative w-24 h-24">
+                    <div class="absolute inset-0 animate-spin-slow">
+                        <svg class="w-full h-full text-indigo-500/30" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                        </svg>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-12 h-12 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+                    Frequently Asked Questions
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">Find Your Answers</span>
+                </h2>
+                <p class="mt-4 text-gray-400">Everything you need to know about our banking services</p>
+            </div>
+
+            <!-- FAQ Grid -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="group bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <button class="w-full flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-indigo-600 transition-colors">
+                            Can I cancel at anytime?
+                        </h3>
+                        <span class="group-hover:rotate-180 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-400">
+                        Yes, you can cancel anytime. We believe in flexibility and transparency - no questions asked!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="group bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <button class="w-full flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-indigo-600 transition-colors">
+                            How secure is our platform?
+                        </h3>
+                        <span class="group-hover:rotate-180 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-400">
+                        We use bank-grade security with 256-bit encryption and continuous monitoring to keep your data safe.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="group bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <button class="w-full flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-indigo-600 transition-colors">
+                            How do I access my account?
+                        </h3>
+                        <span class="group-hover:rotate-180 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-400">
+                        Simply log in through our secure portal using your credentials. We also offer biometric authentication.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="group bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <button class="w-full flex items-center justify-between gap-4">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-indigo-600 transition-colors">
+                            What are the transfer limits?
+                        </h3>
+                        <span class="group-hover:rotate-180 transition-transform duration-300">
+                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mt-4 text-gray-400">
+                        Transfer limits vary by account type. Premium accounts enjoy higher limits with instant transfers.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Have Questions -->
+            <div class="mt-16 text-center">
+                <div class="inline-flex items-center gap-3 bg-indigo-900/30 px-6 py-3 rounded-full">
+                    <span class="animate-bounce">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </span>
+                    <p class="text-indigo-400 font-medium">Still have questions? <a href="#" class="underline hover:text-indigo-300">Contact our support team</a></p>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer class="bg-white dark:bg-gray-900">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <a href="/" class="flex items-center">
+                        <img src="/assets/images/logo.svg" class="h-8 me-3" alt="SecureBank Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SecureBank</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Banking</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                            <li class="mb-4">
+                                <a href="/accounts" class="hover:underline">Accounts</a>
+                            </li>
+                            <li class="mb-4">
+                                <a href="/investments" class="hover:underline">Investments</a>
+                            </li>
+                            <li>
+                                <a href="/loans" class="hover:underline">Loans</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Support</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                            <li class="mb-4">
+                                <a href="/help" class="hover:underline">Help Center</a>
+                            </li>
+                            <li class="mb-4">
+                                <a href="/contact" class="hover:underline">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="/security" class="hover:underline">Security</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                            <li class="mb-4">
+                                <a href="/privacy" class="hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="/terms" class="hover:underline">Terms &amp; Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a
+                        href="/" class="hover:underline">SecureBank™</a>. All Rights Reserved.
+                </span>
+                <div class="flex mt-4 sm:justify-center sm:mt-0">
+                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 8 19">
+                            <path fill-rule="evenodd"
+                                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Facebook page</span>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 17">
+                            <path fill-rule="evenodd"
+                                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">Twitter page</span>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span class="sr-only">GitHub account</span>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 448 512">
+                            <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                        </svg>
+                        <span class="sr-only">LinkedIn page</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+
+</body>
+
+</html>
